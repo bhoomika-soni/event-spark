@@ -25,14 +25,14 @@ every confirmed seat becomes a scannable QR ticket.
 ## Tech stack
 
 The original brief targeted Next.js + Prisma + Redis. This project is built on the equivalent
-Lovable stack, keeping every architectural guarantee:
+stack, keeping every architectural guarantee:
 
 | Brief | Implemented as |
 | --- | --- |
 | Next.js App Router | TanStack Start (React 19 + Vite, SSR, file-based routing) |
 | TypeScript | TypeScript, strict |
 | Tailwind + shadcn/ui | Tailwind CSS v4 + shadcn/ui |
-| PostgreSQL + Prisma | PostgreSQL (Lovable Cloud / Supabase) with SQL migrations |
+| PostgreSQL + Prisma | PostgreSQL with SQL migrations |
 | Redis seat locks | `seat_locks` table + atomic PL/pgSQL RPCs and a unique partial index |
 | Zod | Zod schemas for every form and server input |
 | Razorpay | Payment server function with a Razorpay-shaped contract, test path enabled |
@@ -125,8 +125,6 @@ bun install
 bun run dev      # http://localhost:8080
 ```
 
-Environment variables are provided by the Lovable Cloud integration; server-only secrets are read
-inside server-function handlers.
 
 ## Demo script (for a portfolio walkthrough)
 
