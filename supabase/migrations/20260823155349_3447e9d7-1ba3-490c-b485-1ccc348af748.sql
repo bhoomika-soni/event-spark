@@ -1,0 +1,14 @@
+revoke all on function public.handle_new_user() from public, anon, authenticated;
+revoke all on function public.events_after_write() from public, anon, authenticated;
+revoke all on function public.events_touch() from public, anon, authenticated;
+revoke all on function public.generate_seats_for_event(uuid) from public, anon, authenticated;
+revoke all on function public.has_role(uuid, public.app_role) from public, anon;
+revoke all on function public.lock_seats(uuid, uuid[]) from public, anon;
+revoke all on function public.release_seats(uuid[]) from public, anon;
+revoke all on function public.confirm_booking(uuid, uuid[], text, text) from public, anon;
+revoke all on function public.cancel_booking(uuid) from public, anon;
+grant execute on function public.has_role(uuid, public.app_role) to authenticated;
+grant execute on function public.lock_seats(uuid, uuid[]) to authenticated;
+grant execute on function public.release_seats(uuid[]) to authenticated;
+grant execute on function public.confirm_booking(uuid, uuid[], text, text) to authenticated;
+grant execute on function public.cancel_booking(uuid) to authenticated;

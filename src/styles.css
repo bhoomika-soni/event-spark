@@ -1,0 +1,154 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EventX design system — "night box office".
+ * Deep ink surfaces, warm amber marquee accent, cool teal for confirmed state.
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-seat-available: var(--seat-available);
+  --color-seat-selected: var(--seat-selected);
+  --color-seat-locked: var(--seat-locked);
+  --color-seat-booked: var(--seat-booked);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.16 0.017 264);
+  --foreground: oklch(0.96 0.006 260);
+  --surface: oklch(0.2 0.019 264);
+  --surface-2: oklch(0.25 0.022 264);
+  --card: oklch(0.2 0.019 264);
+  --card-foreground: oklch(0.96 0.006 260);
+  --popover: oklch(0.21 0.02 264);
+  --popover-foreground: oklch(0.96 0.006 260);
+  --primary: oklch(0.79 0.16 71);
+  --primary-foreground: oklch(0.19 0.03 62);
+  --secondary: oklch(0.27 0.023 264);
+  --secondary-foreground: oklch(0.95 0.006 260);
+  --muted: oklch(0.26 0.02 264);
+  --muted-foreground: oklch(0.7 0.017 262);
+  --accent: oklch(0.72 0.12 190);
+  --accent-foreground: oklch(0.18 0.03 200);
+  --destructive: oklch(0.63 0.2 24);
+  --destructive-foreground: oklch(0.98 0.005 260);
+  --success: oklch(0.72 0.14 162);
+  --success-foreground: oklch(0.18 0.04 165);
+  --border: oklch(0.3 0.021 264);
+  --input: oklch(0.3 0.021 264);
+  --ring: oklch(0.79 0.16 71);
+  --seat-available: oklch(0.36 0.025 264);
+  --seat-selected: oklch(0.79 0.16 71);
+  --seat-locked: oklch(0.62 0.13 45);
+  --seat-booked: oklch(0.28 0.014 264);
+  --chart-1: oklch(0.79 0.16 71);
+  --chart-2: oklch(0.72 0.12 190);
+  --chart-3: oklch(0.72 0.14 162);
+  --chart-4: oklch(0.66 0.15 30);
+  --chart-5: oklch(0.6 0.1 250);
+  --sidebar: oklch(0.18 0.018 264);
+  --sidebar-foreground: oklch(0.95 0.006 260);
+  --sidebar-primary: oklch(0.79 0.16 71);
+  --sidebar-primary-foreground: oklch(0.19 0.03 62);
+  --sidebar-accent: oklch(0.25 0.022 264);
+  --sidebar-accent-foreground: oklch(0.95 0.006 260);
+  --sidebar-border: oklch(0.3 0.021 264);
+  --sidebar-ring: oklch(0.79 0.16 71);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(60rem 30rem at 80% -10%, oklch(0.79 0.16 71 / 0.1), transparent),
+      radial-gradient(50rem 25rem at 0% 0%, oklch(0.72 0.12 190 / 0.08), transparent);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+@utility ticket-notch {
+  position: relative;
+  mask-image: radial-gradient(circle at left 50%, transparent 12px, black 12.5px),
+    radial-gradient(circle at right 50%, transparent 12px, black 12.5px);
+  mask-composite: intersect;
+}
